@@ -1,0 +1,19 @@
+<?php
+
+namespace NamespacePlaceholder;
+
+use App\Base\Model;
+
+/**
+ * Class ClassPlaceholder
+ *
+ * @author AuthorPlaceholder <EmailPlaceholder>
+ * @category Model
+ * @see SeePlaceholder
+ */
+class ClassPlaceholder extends Model
+{
+
+    protected $table = '';
+
+}

@@ -1,0 +1,29 @@
+<?php
+
+namespace NamespacePlaceholder;
+
+use App\Base\Middleware;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
+
+/**
+ * Class ClassPlaceholder
+ *
+ * @author AuthorPlaceholder <EmailPlaceholder>
+ * @category Middleware
+ * @see SeePlaceholder
+ */
+class ClassPlaceholder extends Middleware
+{
+
+    public function handle(Request $request, Response $response, $next): Response
+    {
+        // ...
+
+        $response = $next($request, $response);
+
+        return $response;
+    }
+
+}
+

@@ -1,0 +1,24 @@
+<?php
+
+namespace NamespacePlaceholder;
+
+use App\Base\Presenter;
+
+/**
+ * Class ClassPlaceholder
+ *
+ * @author AuthorPlaceholder <EmailPlaceholder>
+ * @category Presenter
+ * @see SeePlaceholder
+ */
+class ClassPlaceholder extends Presenter
+{
+
+    public function format(): array
+    {
+        return [
+            // ...
+        ];
+    }
+
+}

@@ -1,0 +1,38 @@
+<?php
+
+use $useClassName;
+use Illuminate\Database\Schema\Blueprint;
+
+/**
+ * Class $className
+ *
+ * @author John Doe <john.doe@example.com>
+ * @category Migration
+ * @see https://example.com
+ */
+class $className extends $baseClassName
+{
+
+    public function up()
+    {
+        $this->schema()->create('', function(Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            // ...
+        });
+
+        $this->schema()->table('', function(Blueprint $table) {
+            // 
+        });
+    }
+
+    public function down()
+    {
+        $this->schema()->drop('');
+
+        $this->schema()->table('', function(Blueprint $table) {
+            // 
+        });
+    }
+
+}

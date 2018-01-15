@@ -1,0 +1,11 @@
+#!/usr/bin/evn php
+
+<?php
+
+use App\Console;
+
+require_once realpath(dirname(__DIR__)) . '/bootstrap/app.php';
+
+$console = new Console($App->getContainer());
+$console->boot();
+$console->run();

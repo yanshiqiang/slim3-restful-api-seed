@@ -1,0 +1,15 @@
+### NetBeans ###
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### Environment ###
+.env
+
+### Composer ###
+composer.phar
+/vendor/
+/logs/

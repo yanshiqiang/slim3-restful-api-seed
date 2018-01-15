@@ -1,0 +1,50 @@
+<?php
+
+namespace NamespacePlaceholder;
+
+use App\Base\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+
+/**
+ * Class ClassPlaceholder
+ * 
+ * @author AuthorPlaceholder <EmailPlaceholder>
+ * @category Command
+ * @see SeePlaceholder
+ */
+class ClassPlaceholder extends Command
+{
+
+    public function arguments(): array
+    {
+        return [];
+    }
+
+    public function description(): string
+    {
+        return '';
+    }
+
+    public function handle()
+    {
+        // ...
+    }
+
+    public function help(): string
+    {
+        return '';
+    }
+
+    public function name(): string
+    {
+        return '';
+    }
+
+    public function options(): array
+    {
+        return [];
+    }
+
+}
+
