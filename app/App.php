@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Exception;
 use Slim\App as Slim;
+use Slim\Exception\NotFoundException;
 
 /**
  * Class App
@@ -14,16 +16,15 @@ use Slim\App as Slim;
 class App extends Slim
 {
 
-    public function route(array $methods, $pattern, $class, $method = '')
+    public function route(array $methods, $pattern, $className, $methodName = '')
     {
-        $callable = function($request, $response, $args) use ($class, $method) {
-            $class = new $class($this, $request, $response);
-            $method_name = strtolower($request->getMethod()) . ucfirst(strtolower($method));
-            if (!method_exists($class, $method_name)) {
-                throw new NotFoundException;
+        $callable = function($request, $response, $args) use ($className, $methodName) {
+            $class = new $className($this, $request, $response);
+            $method = $methodName ?: strtolower($request->getMethod());
+            if (!method_exists($class, $method)) {
+                die(sprintf('The method "%s" was not found', $method));
             }
-
-            return call_user_func_array([$class, $method_name], $args);
+            return call_user_func_array([$class, $method], $args);
         };
 
         return $this->map($methods, $pattern, $callable);

@@ -73,7 +73,7 @@ class UsersController extends Controller
 
         if (!$validation->passed()) {
             return $this->respondWithValidation($validation->errors());
-        }
+}
 
         $user = new UserModel;
         $user->email = $this->param('email');
