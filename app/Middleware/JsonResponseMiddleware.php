@@ -18,7 +18,7 @@ class JsonResponseMiddleware extends Middleware
 
     public function handle(Request $request, Response $response, $next): Response
     {
-        $response = $next($request, $response->withHeader('Content-Type', 'application/json'));
+        $response = $next($request, $response->withHeader('Content-Type', 'application/json'));        
 
         return $response;
     }

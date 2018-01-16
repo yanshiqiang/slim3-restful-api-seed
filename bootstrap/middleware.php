@@ -9,3 +9,8 @@ $App->add(new CorsMiddleware($container));
 use App\Middleware\JsonResponseMiddleware;
 
 $App->add(new JsonResponseMiddleware($container));
+
+// Jwt Auth
+use App\Middleware\JwtAuthMiddleware;
+
+$App->add(new JwtAuthMiddleware($container));

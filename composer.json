@@ -23,7 +23,9 @@
         "robmorgan/phinx": "^0.9.1",
         "hassankhan/config": "^0.11.2",
         "symfony/console": "^3.3",
-        "symfony/var-dumper": "^3.3"
+        "symfony/var-dumper": "^3.3",
+        "firebase/php-jwt": "^5.0",
+        "tuupola/slim-jwt-auth": "^2.3"
     },
     "autoload": {
         "psr-4": {

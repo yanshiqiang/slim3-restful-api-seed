@@ -9,6 +9,11 @@ $container['config'] = function() {
     return new Config(ROOT . 'config');
 };
 
+// Jwt
+$container['jwt'] = function () {
+    return new stdClass();
+};
+
 // Logger
 use Monolog\Logger;
 use Monolog\Formatter\LineFormatter;
