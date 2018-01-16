@@ -7,14 +7,14 @@ A basic starter structure which can be used to develop RESTful APIs, built with 
 * [License](#license)
 * [Requirements](#requirements)
 * [Installation](#installation)
- * [Configuration](#configuration)
+** [Configuration](#configuration)
 * [Documentation](#documentation)
- * [Getting Started](#getting-started)
- * [Controllers](#controllers)
- * [Models](#models)
- * [Presenters](#presenters)
- * [Middleware](#middleware)
- * [Commands](#commands)
+** [Getting Started](#getting-started)
+** [Controllers](#controllers)
+** [Models](#models)
+** [Presenters](#presenters)
+** [Middleware](#middleware)
+** [Commands](#commands)
 * [Useful Links](#useful-links)
 
 ## License
@@ -49,7 +49,7 @@ Controllers are typically stored in the `app/Controller` directory, however they
 
 ### Models
 
-Models are typically stored in the `app/Model` directory. 
+This project makes use of Eloquent ORM, a simple ActiveRecord implementation for working with databases. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in tables, as well as insert new records into the table. Models are typically stored in the `app/Model` directory, but you are free to place them anywhere that can be auto-loaded. All models are required to extend the `App\Base\Model` class, which is stored in the `app/Base` directory.
 
 `php bin/console generate:resource model ModelName`
 
