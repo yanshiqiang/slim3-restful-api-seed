@@ -51,11 +51,15 @@ Controllers are typically stored in the `app/Controller` directory, however they
 
 This project makes use of Eloquent ORM, a simple ActiveRecord implementation for working with databases. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in tables, as well as insert new records into the table. Models are typically stored in the `app/Model` directory, but you are free to place them anywhere that can be auto-loaded. All models are required to extend the `App\Base\Model` class, which is stored in the `app/Base` directory.
 
+#### Creating a new Model
+
 `php bin/console generate:resource model ModelName`
 
 ### Presenters
 
-Presenters are typically stored in the `app/Presenter` directory. 
+Presenters are basically a class that accepts an model, wrapping it in some specific logic to alter the returned values without having to modify the original object in order to generate the view data. A presenter shouldn't do any data manipulation, but can contain model calls and any other retrieval or preparation operations needed to generate the view data. Presenters are typically stored in the `app/Presenter` directory and are required to extend the `App\Base\Presenter` class.
+
+#### Creating a new Presenter
 
 `php bin/console generate:resource presenter PresenterName`
 
