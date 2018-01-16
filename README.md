@@ -57,7 +57,7 @@ This project makes use of Eloquent ORM, a simple ActiveRecord implementation for
 
 ### Presenters
 
-Presenters are basically a class that accepts an model, wrapping it in some specific logic to alter the returned values without having to modify the original object in order to generate the view data. A presenter shouldn't do any data manipulation, but can contain model calls and any other retrieval or preparation operations needed to generate the view data. Presenters are typically stored in the `app/Presenter` directory and are required to extend the `App\Base\Presenter` class.
+Presenters is used to generate the view data. They are basically a class that accepts a [model](#models) and wraps it in some specific logic to alter the returned values without having to modify the original object. A presenter should not do any data manipulation, but can contain model calls and any other retrieval or preparation operations needed to generate the view data. Presenters are typically stored in the `app/Presenter` directory, although can be placed anywhere that can be auto-loaded, and are required to extend the `App\Base\Presenter` class - which is located in the `app/Base` directory.
 
 #### Creating a new Presenter
 
