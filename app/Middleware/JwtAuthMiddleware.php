@@ -12,7 +12,7 @@ use Slim\Middleware\JwtAuthentication;
  *
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Middleware
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class JwtAuthMiddleware extends Middleware
 {

@@ -8,9 +8,9 @@ use Respect\Validation\Rules\AbstractRule;
 /**
  * Class UsernameUnique
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Validation
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class UsernameUnique extends AbstractRule
 {

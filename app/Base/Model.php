@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 /**
  * Class Model
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Base
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 abstract class Model extends BaseModel
 {

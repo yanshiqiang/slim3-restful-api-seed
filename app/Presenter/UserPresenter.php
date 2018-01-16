@@ -7,9 +7,9 @@ use App\Base\Presenter;
 /**
  * Class UserPresenter
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Presenter
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class UserPresenter extends Presenter
 {

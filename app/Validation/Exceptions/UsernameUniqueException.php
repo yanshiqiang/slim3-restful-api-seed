@@ -7,9 +7,9 @@ use Respect\Validation\Exceptions\ValidationException;
 /**
  * Class UsernameUniqueException
  * @category Validation
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  */
 class UsernameUniqueException extends ValidationException
 {

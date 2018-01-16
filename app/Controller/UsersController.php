@@ -12,9 +12,9 @@ use Respect\Validation\Validator as v;
 /**
  * Class UsersController
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class UsersController extends Controller
 {

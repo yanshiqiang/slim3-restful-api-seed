@@ -12,7 +12,7 @@ use Firebase\JWT\JWT;
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class AuthController extends Controller
 {

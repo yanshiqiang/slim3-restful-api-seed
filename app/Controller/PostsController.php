@@ -11,9 +11,9 @@ use Respect\Validation\Validator as v;
 /**
  * Class PostsController
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class PostsController extends Controller
 {

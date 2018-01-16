@@ -10,9 +10,9 @@ use Interop\Container\ContainerInterface;
 /**
  * Class Console
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category App
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class Console extends Application implements ContainerAwareInterface
 {

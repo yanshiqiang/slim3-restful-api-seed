@@ -8,9 +8,9 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 /**
  * Class Migration
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Base
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class Migration extends AbstractMigration
 {

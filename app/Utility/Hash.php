@@ -5,9 +5,9 @@ namespace App\Utility;
 /**
  * Class Hash
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Utility
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class Hash
 {

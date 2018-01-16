@@ -7,9 +7,9 @@ use Interop\Container\ContainerInterface;
 /**
  * Trait ContainerAwareTrait
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Traits
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 trait ContainerAwareTrait
 {

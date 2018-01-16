@@ -9,9 +9,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 /**
  * Class JsonResponseMiddleware
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Middleware
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class JsonResponseMiddleware extends Middleware
 {

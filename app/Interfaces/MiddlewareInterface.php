@@ -8,9 +8,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 /**
  * Interface MiddlewareInterface
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Interfaces
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 interface MiddlewareInterface
 {

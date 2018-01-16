@@ -5,9 +5,9 @@ namespace App\Interfaces;
 /**
  * Interface CommandInterface
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Interfaces
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 interface CommandInterface
 {

@@ -11,9 +11,9 @@ use Symfony\Component\Console\Input\InputOption;
 /**
  * Class PostCreateCommand
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Command
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class PostCreateCommand extends Command
 {

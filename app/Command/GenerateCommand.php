@@ -9,9 +9,9 @@ use Symfony\Component\Console\Input\InputOption;
 /**
  * Class GenerateCommand
  * 
- * @author Andrew Dyer
+ * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Command
- * @see https://example.com
+ * @see https://github.com/andrewdyer/slim3-restful-api-seed
  * @au
  */
 class GenerateCommand extends Command
