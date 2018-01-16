@@ -2,6 +2,21 @@
 
 A basic starter structure which can be used to develop RESTful APIs, built with the Slim 3 framework and featuring a integrated command line interface using the Symfony Console Component.
 
+## Index
+
+* [License](#license)
+* [Requirements](#requirements)
+* [Installation](#installation)
+ * [Configuration](#configuration)
+* [Documentation](#documentation)
+ * [Getting Started](#getting-started)
+ * [Controllers](#controllers)
+ * [Models](#models)
+ * [Presenters](#presenters)
+ * [Middleware](#middleware)
+ * [Commands](#commands)
+* [Useful Links](#useful-links)
+
 ## License
 
 Licensed under MIT. Totally free for private or commercial projects.
@@ -17,39 +32,54 @@ Licensed under MIT. Totally free for private or commercial projects.
 `composer create-project andrewdyer/slim3-restful-api-seed project_name`
 
 ### Configuration
-* Activate mod_rewrite, route all traffic to application's /public folder.
-* Set up the project environment by updating the .env file in the application's root folder.
-* Run all available migrations by executing `php vendor/bin/phinx migrate` in the application's root folder.
+* Activate mod_rewrite, route all traffic to application's /public directory.
+* Set up the project environment by updating the .env file in the application's root directory.
+* Run all available migrations by executing `php vendor/bin/phinx migrate` in the application's root directory.
 
 ## Documentation
 ### Getting Started
 
-#### Controllers
+### Controllers
 
-Controllers are typically stored in the `app/Controller` directory, however they can technically live in any directory or any sub-directory. All controllers should extend the `App\Base\Controller` class. The Base Controller is also stored in the `app/Base` directory, and may be used as a place to put shared controller logic.
+Controllers are typically stored in the `app/Controller` directory, however they can technically live in any directory or any sub-directory. All controllers should extend the `App\Base\Controller` class, which is stored in the `app/Base` directory. The base controller may be used as a place to put shared controller logic.
+
+#### Creating a new Controller
 
 `php bin/console generate:resource controller ControllerName`
 
-#### Models
+### Models
 
 Models are typically stored in the `app/Model` directory. 
 
 `php bin/console generate:resource model ModelName`
 
-#### Presenters
+### Presenters
 
 Presenters are typically stored in the `app/Presenter` directory. 
 
 `php bin/console generate:resource presenter PresenterName`
 
-#### Middleware
+### Middleware
 
 Middleware are typically stored in the `app/Middleware` directory. 
 
 `php bin/console generate:resource middleware MiddlewareName`
 
-#### Commands
+### Commands
 
 Commands are typically stored in the `app/Command` directory. 
 
 `php bin/console generate:resource command CommandName`
+
+## Useful Links
+
+* [Slim Framework](https://www.slimframework.com)
+* [Illuminate Database](https://github.com/illuminate/database)
+* [PHP dotenv](https://github.com/vlucas/phpdotenv)
+* [Respect Validation](https://github.com/Respect/Validation)
+* [Respect Validation Validators](https://github.com/Respect/Validation/blob/1.1/docs/VALIDATORS.md)
+* [Monolog](https://github.com/Seldaek/monolog)
+* [Phinx Migrations](https://book.cakephp.org/3.0/en/phinx.html)
+* [Config](https://github.com/hassankhan/config)
+* [The Console Component](https://symfony.com/doc/current/components/console.html)
+* [The VarDumper Component](https://symfony.com/doc/current/components/var_dumper.html)
