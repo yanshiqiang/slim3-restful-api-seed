@@ -16,9 +16,15 @@ trait ContainerAwareTrait
 
     private $_container;
 
+    public function getContainer()
+    {
+        return $this->_container;
+    }
+
     public function setContainer(ContainerInterface $container)
     {
         $this->_container = $container;
+        return $this;
     }
 
     protected function config($key)

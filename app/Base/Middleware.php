@@ -16,11 +16,11 @@ use Psr\Http\Message\ResponseInterface as Response;
  * @category Base
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-abstract class Middleware implements ContainerAwareInterface, MiddlewareInterface 
+abstract class Middleware implements ContainerAwareInterface, MiddlewareInterface
 {
 
     use ContainerAwareTrait;
-
+    
     public function __construct(ContainerInterface $container)
     {
         $this->setContainer($container);
