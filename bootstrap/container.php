@@ -11,7 +11,7 @@ $container['config'] = function() {
 
 // Jwt
 $container['jwt'] = function () {
-    return new stdClass();
+    return new \stdClass();
 };
 
 // Logger

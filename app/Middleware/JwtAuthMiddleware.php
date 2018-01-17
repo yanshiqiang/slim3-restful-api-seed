@@ -20,6 +20,7 @@ class JwtAuthMiddleware extends Middleware
     public function handle(Request $request, Response $response, $next): Response
     {
         $jwt = $this->config('jwt');
+        $container = $this->getContainer();
         $jwtAuthentication = new JwtAuthentication([
             'path' => $jwt['path'],
             'passthrough' => $jwt['passthrough'],
@@ -33,13 +34,13 @@ class JwtAuthMiddleware extends Middleware
                 $body = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
                 return $response->withHeader('Content-Type', 'application/json')->write($body);
             },
-            'callback' => function ($request, $response, $arguments) {
-                $this->jwt = $arguments['decoded'];
+            'callback' => function ($request, $response, $arguments) use($container) {
+                $container['jwt'] = $arguments['decoded'];
             }
         ]);
 
         $response = $jwtAuthentication($request, $response, $next);
-        
+
         return $response;
     }
 

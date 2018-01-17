@@ -40,7 +40,9 @@ class UsersController extends Controller
         if (!$user = UserModel::find($id)) {
             return $this->respondWithError($this->text('user.not_found'));
         }
-
+        
+        $user->giveAllPermissions();
+        
         return $this->respond((new UserPresenter($user))->present());
     }
 
