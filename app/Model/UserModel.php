@@ -27,14 +27,22 @@ class UserModel extends Model
         return $this->hasPermissionTo($permission);
     }
 
+    public function is($action)
+    {
+        if (!$role = RoleModel::where('name', $action)->first()) {
+            return false;
+        }
+        return $this->hasRole($role);
+    }
+
     public function isAdmin()
     {
-        return $this->hasRole('Admin');
+        return $this->is('Admin');
     }
 
     public function isSuperAdmin()
     {
-        return $this->hasRole('Super Admin');
+        return $this->is('Super Admin');
     }
 
     public function permissions()

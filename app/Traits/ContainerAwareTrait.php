@@ -32,6 +32,11 @@ trait ContainerAwareTrait
         return $this->_container->config->get($key);
     }
 
+    protected function jwt()
+    {
+        return $this->_container->jwt;
+    }
+
     protected function logger()
     {
         return $this->_container->logger;
@@ -44,6 +49,11 @@ trait ContainerAwareTrait
         }
 
         return $text;
+    }
+
+    protected function data()
+    {
+        return $this->jwt()->data;
     }
 
 }
