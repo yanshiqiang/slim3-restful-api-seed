@@ -55,15 +55,6 @@ abstract class Controller implements ContainerAwareInterface
 
     /**
      * 
-     * @return type
-     */
-    protected function jwt()
-    {
-        return $this->_container->jwt;
-    }
-
-    /**
-     * 
      * @param type $key
      * @param type $default [Optional]
      * @return type
@@ -141,15 +132,6 @@ abstract class Controller implements ContainerAwareInterface
         $response['message'] = 'Some fields are not correctly sent';
 
         return $this->respond(json_encode($response), 400);
-    }
-
-    /**
-     * 
-     * @return type
-     */
-    protected function user()
-    {
-        return $this->jwt()->data;
     }
 
     /**
