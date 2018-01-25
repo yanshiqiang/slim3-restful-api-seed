@@ -14,18 +14,31 @@ use App\Interfaces\PresenterInterface;
 abstract class Presenter implements PresenterInterface
 {
 
+    /** @var object */
     private $_data;
 
+    /**
+     * 
+     * @param mixed $data
+     */
     public function __construct($data = null)
     {
         $this->_data = (object) $data;
     }
 
+    /**
+     * 
+     * @return object
+     */
     protected function data()
     {
         return $this->_data;
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function present()
     {
         return json_encode($this->format());
