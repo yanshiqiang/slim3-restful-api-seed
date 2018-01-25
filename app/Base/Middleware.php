@@ -21,12 +21,23 @@ abstract class Middleware implements ContainerAwareInterface, MiddlewareInterfac
 
     use ContainerAwareTrait;
     
+    /**
+     * 
+     * @param Interop\Container\ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         $this->setContainer($container);
     }
 
-    public function __invoke(Request $request, Response $response, $next)
+    /**
+     * 
+     * @param Psr\Http\Message\ServerRequestInterface $request
+     * @param Psr\Http\Message\ResponseInterface $response
+     * @param callable $next
+     * @return Psr\Http\Message\ResponseInterface
+     */
+    public function __invoke(Request $request, Response $response, callable $next)
     {
         return $this->handle($request, $response, $next);
     }

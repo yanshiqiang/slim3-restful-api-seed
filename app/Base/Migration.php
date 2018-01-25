@@ -15,13 +15,21 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 class Migration extends AbstractMigration
 {
 
+    /** @var Illuminate\Database\Schema\MySqlBuilder */
     private $_schema;
 
+    /**
+     * 
+     */
     public function init()
     {
         $this->_schema = (new Capsule)->schema();
     }
 
+    /**
+     * 
+     * @return Illuminate\Database\Schema\MySqlBuilder
+     */
     public function schema()
     {
         return $this->_schema;
