@@ -20,13 +20,17 @@ abstract class Controller implements ContainerAwareInterface
 
     use ContainerAwareTrait;
 
-    private $_request, $_response;
+    /** @var Slim\Http\Request */
+    private $_request;
+
+    /** @var Slim\Http\Response */
+    private $_response;
 
     /**
      * 
-     * @param ContainerInterface $container
-     * @param Request $request
-     * @param Response $response
+     * @param Interop\Container\ContainerInterface $container
+     * @param Slim\Http\Request $request
+     * @param Slim\Http\Response $response
      */
     public function __construct(ContainerInterface $container, Request $request, Response $response)
     {
@@ -37,7 +41,7 @@ abstract class Controller implements ContainerAwareInterface
 
     /**
      * 
-     * @return type
+     * @return array
      */
     protected function inputs()
     {
@@ -50,27 +54,27 @@ abstract class Controller implements ContainerAwareInterface
             return array_filter(array_map($callable, $inputs));
         }
 
-        return null;
+        return [];
     }
 
     /**
      * 
-     * @param type $key
-     * @param type $default [Optional]
-     * @return type
+     * @param string $key
+     * @param string $default [Optional]
+     * @return mixed
      */
-    protected function param($key, $default = null)
+    protected function param(string $key, string $default = '')
     {
         return $this->_request->getParam($key, $default);
     }
 
     /**
      * 
-     * @param string $content [Optional]
+     * @param string $content
      * @param int $status [Optional]
-     * @return type
+     * @return Slim\Http\Response
      */
-    protected function respond(string $content = '', int $status = 200)
+    protected function respond(string $content, int $status = 200)
     {
         $body = $this->_response->getBody();
         $body->write($content);
@@ -82,14 +86,12 @@ abstract class Controller implements ContainerAwareInterface
      * 
      * @param string $message
      * @param int $status [Optional]
-     * @return type
+     * @return Slim\Http\Response
      */
     protected function respondWithError(string $message, int $status = 404)
     {
         $response = [];
-        if ($message) {
-            $response['message'] = $message;
-        }
+        $response['message'] = $message;
 
         return $this->respond(json_encode($response), $status);
     }
@@ -97,7 +99,7 @@ abstract class Controller implements ContainerAwareInterface
     /**
      * 
      * @param int $status [Optional]
-     * @return type
+     * @return Slim\Http\Response
      */
     protected function respondWithNoContent(int $status = 200)
     {
@@ -108,14 +110,12 @@ abstract class Controller implements ContainerAwareInterface
      * 
      * @param string $message
      * @param int $status [Optional]
-     * @return type
+     * @return Slim\Http\Response
      */
     protected function respondWithSuccess(string $message, int $status = 200)
     {
         $response = [];
-        if ($message) {
-            $response['message'] = $message;
-        }
+        $response['message'] = $message;
 
         return $this->respond(json_encode($response), $status);
     }
@@ -123,9 +123,9 @@ abstract class Controller implements ContainerAwareInterface
     /**
      * 
      * @param array $errors
-     * @return type
+     * @return Slim\Http\Response
      */
-    public function respondWithValidation(array $errors)
+    protected function respondWithValidation(array $errors)
     {
         $response = [];
         $response['errors'] = $errors;
@@ -138,7 +138,9 @@ abstract class Controller implements ContainerAwareInterface
      * 
      * @param array $rules
      * @param array $inputs [Optional]
-     * @return type
+     * @return App\Validation\Validator
+     * 
+     * @todo Make this better!
      */
     protected function validate(array $rules, array $inputs = [])
     {
