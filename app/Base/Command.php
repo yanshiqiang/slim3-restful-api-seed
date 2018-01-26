@@ -5,10 +5,10 @@ namespace App\Base;
 use App\Interfaces\CommandInterface;
 use App\Interfaces\ContainerAwareInterface;
 use App\Traits\ContainerAwareTrait;
+use Interop\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command as BaseCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Interop\Container\ContainerInterface;
 
 /**
  * Class Command
@@ -22,8 +22,16 @@ abstract class Command extends BaseCommand implements CommandInterface, Containe
 
     use ContainerAwareTrait;
 
-    private $_input, $_output;
+    /** @var Symfony\Component\Console\Input\InputInterface */
+    private $_input;
 
+    /** @var Symfony\Component\Console\Output\OutputInterface */
+    private $_output;
+
+    /**
+     * 
+     * @param Interop\Container\ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         parent::__construct();
@@ -31,16 +39,20 @@ abstract class Command extends BaseCommand implements CommandInterface, Containe
         $this->setContainer($container);
     }
 
-    protected function argument($name)
+    /**
+     * 
+     * @param string $name
+     * @return mixed
+     */
+    protected function argument(string $name)
     {
         return $this->_input->getArgument($name);
     }
 
-    protected function comment($value)
-    {
-        $this->_output->writeln('<comment>' . $value . '</comment>');
-    }
-
+    /**
+     * 
+     * @return void
+     */
     protected function configure()
     {
         $this->setName($this->name());
@@ -60,11 +72,12 @@ abstract class Command extends BaseCommand implements CommandInterface, Containe
         }
     }
 
-    protected function error($value)
-    {
-        $this->_output->writeln('<error>' . $value . '</error>');
-    }
-
+    /**
+     * 
+     * @param Symfony\Component\Console\Input\InputInterface $input
+     * @param Symfony\Component\Console\Output\OutputInterface $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->_input = $input;
@@ -72,29 +85,72 @@ abstract class Command extends BaseCommand implements CommandInterface, Containe
         $this->handle();
     }
 
-    protected function info($value)
-    {
-        $this->_output->writeln('<info>' . $value . '</info>');
-    }
-
+    /**
+     * 
+     * @return Symfony\Component\Console\Input\InputInterface
+     */
     protected function input()
     {
         return $this->_input;
     }
 
-    protected function option($name)
+    /**
+     * 
+     * @param string $name
+     * @return mixed
+     */
+    protected function option(string $name)
     {
         return $this->_input->getOption($name);
     }
 
+    /**
+     * 
+     * @return Symfony\Component\Console\Output\OutputInterface
+     */
     protected function output()
     {
         return $this->_output;
     }
 
-    protected function question($value)
+    /**
+     * 
+     * @param string $message
+     * @return void
+     */
+    protected function writeComment(string $message)
     {
-        $this->_output->writeln('<question>' . $value . '</question>');
+        $this->_output->writeln('<comment>' . $message . '</comment>');
+    }
+
+    /**
+     * 
+     * @param string $message
+     * @return void
+     */
+    protected function writeError(string $message)
+    {
+        $this->_output->writeln('<error>' . $message . '</error>');
+    }
+
+    /**
+     * 
+     * @param string $message
+     * @return void
+     */
+    protected function writeInfo(string $message)
+    {
+        $this->_output->writeln('<info>' . $message . '</info>');
+    }
+
+    /**
+     * 
+     * @param string $message
+     * @return void
+     */
+    protected function writeQuestion(string $message)
+    {
+        $this->_output->writeln('<question>' . $message . '</question>');
     }
 
 }

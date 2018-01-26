@@ -43,7 +43,7 @@ class PostCreateCommand extends Command
             $post->content = $this->argument('content');
             $post->save();
 
-            $this->info(sprintf('Post #%s created!', $post->id));
+            $this->writeInfo(sprintf('Post #%s created!', $post->id));
             $progress->advance();
         }
         $progress->finish();
