@@ -12,15 +12,39 @@ namespace App\Interfaces;
 interface CommandInterface
 {
 
+    /**
+     * 
+     * @return array
+     */
     public function arguments(): array;
 
+    /**
+     * 
+     * @return string
+     */
     public function description(): string;
 
+    /**
+     * 
+     * @return mixed
+     */
     public function handle();
 
+    /**
+     * 
+     * @return string
+     */
     public function help(): string;
 
+    /**
+     * 
+     * @return string
+     */
     public function name(): string;
 
+    /**
+     * 
+     * @return array
+     */
     public function options(): array;
 }

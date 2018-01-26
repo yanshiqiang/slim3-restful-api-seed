@@ -24,7 +24,6 @@ trait ContainerAwareTrait
     public function setContainer(ContainerInterface $container)
     {
         $this->_container = $container;
-        return $this;
     }
 
     protected function config($key)

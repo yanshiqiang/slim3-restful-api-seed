@@ -15,5 +15,12 @@ use Psr\Http\Message\ResponseInterface as Response;
 interface MiddlewareInterface
 {
 
-    public function handle(Request $request, Response $response, $next): Response;
+    /**
+     * 
+     * @param Psr\Http\Message\ServerRequestInterface $request
+     * @param Psr\Http\Message\ResponseInterface $response
+     * @param callable $next
+     * @return Psr\Http\Message\ResponseInterface
+     */
+    public function handle(Request $request, Response $response, callable $next): Response;
 }

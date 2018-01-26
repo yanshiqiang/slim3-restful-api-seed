@@ -14,5 +14,10 @@ use Interop\Container\ContainerInterface;
 interface ContainerAwareInterface
 {
 
+    /**
+     * 
+     * @param Interop\Container\ContainerInterface $container
+     * @return void
+     */
     public function setContainer(ContainerInterface $container);
 }
