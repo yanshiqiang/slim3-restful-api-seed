@@ -12,5 +12,9 @@ namespace App\Interfaces;
 interface PresenterInterface
 {
 
+    /**
+     * 
+     * @return array
+     */
     public function format(): array;
 }
