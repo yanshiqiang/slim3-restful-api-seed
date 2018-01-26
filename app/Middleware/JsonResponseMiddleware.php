@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 class JsonResponseMiddleware extends Middleware
 {
 
-    public function handle(Request $request, Response $response, $next): Response
+    public function handle(Request $request, Response $response, callable $next): Response
     {
         $response = $next($request, $response->withHeader('Content-Type', 'application/json'));        
 

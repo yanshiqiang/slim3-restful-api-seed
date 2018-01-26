@@ -16,7 +16,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 class CorsMiddleware extends Middleware
 {
 
-    public function handle(Request $request, Response $response, $next): Response
+    public function handle(Request $request, Response $response, callable $next): Response
     {
         $response = $next($request, $response
                         ->withHeader('Access-Control-Allow-Origin', $this->config('app.domain'))

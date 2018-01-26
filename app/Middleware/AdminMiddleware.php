@@ -18,7 +18,7 @@ use Slim\Exception\NotFoundException;
 class AdminMiddleware extends Middleware
 {
 
-    public function handle(Request $request, Response $response, $next): Response
+    public function handle(Request $request, Response $response, callable $next): Response
     {
         $userId = $this->jwt()->data->id;
         
