@@ -17,7 +17,7 @@ use Slim\Middleware\JwtAuthentication;
 class JwtAuthMiddleware extends Middleware
 {
 
-    public function handle(Request $request, Response $response, $next): Response
+    public function handle(Request $request, Response $response, callable $next): Response
     {
         $jwt = $this->config('jwt');
         $container = $this->getContainer();
