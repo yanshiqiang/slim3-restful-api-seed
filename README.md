@@ -11,9 +11,14 @@ A basic starter structure which can be used to develop RESTful APIs, built with 
 * [Documentation](#documentation)
     * [Getting Started](#getting-started)
     * [Controllers](#controllers)
+        * [Creating a new Controller](#creating-a-new-controller)
     * [Models](#models)
+        * [Creating a new Model](#creating-a-new-model)
     * [Presenters](#presenters)
+        * [Creating a new Presenter](#creating-a-new-presenter)
     * [Middleware](#middleware)
+        * [Creating new Middleware](#creating-new-middleware)
+        * [Authentication Middleware](#authentication-middleware)
     * [Commands](#commands)
 * [Useful Links](#useful-links)
 
@@ -65,7 +70,9 @@ Presenters are used to generate the view data. They are basically a class that a
 
 ### Middleware
 
-Middleware are typically stored in the `app/Middleware` directory. 
+Middleware is code that is run before and after your application to manipulate the Request and Response objects as you see fit. Although Middleware can be placed anywhere that can be auto-loaded, it is typically stored in the `app/Middleware` and should extend the `App\Base\Middleware` class - which is located in the `app/Base` directory.
+
+#### Creating new Middleware
 
 `php bin/console generate:resource middleware MiddlewareName`
 
@@ -87,3 +94,4 @@ Commands are typically stored in the `app/Command` directory.
 * [Config](https://github.com/hassankhan/config)
 * [The Console Component](https://symfony.com/doc/current/components/console.html)
 * [The VarDumper Component](https://symfony.com/doc/current/components/var_dumper.html)
+* [PSR-7 JWT Authentication Middleware](https://github.com/tuupola/slim-jwt-auth)
