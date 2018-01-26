@@ -35,7 +35,7 @@ class GenerateCommand extends Command
         $type = $this->argument('type');
         $types = $this->config('app.directories');
         if (!array_key_exists($type, $types) or ! $type = $types[$type]) {
-            return $this->error(sprintf('The resource type "%s" is invalid!', $type));
+            return $this->writeError(sprintf('The resource type "%s" is invalid!', $type));
         }
 
         $fileParts = explode('\\', $this->argument('name'));
@@ -54,7 +54,7 @@ class GenerateCommand extends Command
 
         $target = $path . '/' . $className . '.php';
         if (file_exists($target)) {
-            return $this->error(sprintf('File "%s" already exists.', $target));
+            return $this->writeError(sprintf('File "%s" already exists.', $target));
         }
 
         $replacements = [
@@ -66,10 +66,10 @@ class GenerateCommand extends Command
         ];
         $template = str_replace(array_keys($replacements), $replacements, file_get_contents($type['classTemplate']));
         if (!file_put_contents($target, $template)) {
-            return $this->error(sprintf('Unable to create file "%s".', $target));
+            return $this->writeError(sprintf('Unable to create file "%s".', $target));
         }
 
-        return $this->info(sprintf('Successfully created "%s" in %s.', $className, $target));
+        return $this->writeInfo(sprintf('Successfully created "%s" in %s.', $className, $target));
     }
 
     public function help(): string
