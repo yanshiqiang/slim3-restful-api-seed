@@ -24,7 +24,6 @@ $App = new App([
 ]);
 
 require_once ROOT . 'bootstrap/container.php';
-require_once ROOT . 'bootstrap/handlers.php';
 
 // Capsule
 $capsule = new Capsule;
