@@ -8,15 +8,19 @@ use App\Utility\Hash;
 use Firebase\JWT\JWT;
 
 /**
- * Class AuthController
+ * Class LoginController
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class AuthController extends Controller
+class LoginController extends Controller
 {
 
+    /**
+     * 
+     * @return Slim\Http\Response
+     */
     public function post()
     {
         $username = $this->param('username');
