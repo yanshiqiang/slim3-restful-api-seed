@@ -12,7 +12,6 @@ use Symfony\Component\Console\Input\InputOption;
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Command
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
- * @au
  */
 class GenerateCommand extends Command
 {
@@ -85,9 +84,9 @@ class GenerateCommand extends Command
     public function options(): array
     {
         return [
-            ['author', 'a', InputOption::VALUE_OPTIONAL, 'The resource author.', 'John Doe'],
-            ['email', 'e', InputOption::VALUE_OPTIONAL, 'The email address of the resource author.', 'john.doe@example.com'],
-            ['see', 's', InputOption::VALUE_OPTIONAL, 'The link to the documentation for the resource.', 'https://example.com'],
+            ['author', 'a', InputOption::VALUE_OPTIONAL, 'The resource author.', env('DEV_AUTHOR')],
+            ['email', 'e', InputOption::VALUE_OPTIONAL, 'The email address of the resource author.', env('DEV_AUTHOR_EMAIL')],
+            ['see', 's', InputOption::VALUE_OPTIONAL, 'The link to the documentation for the resource.', env('DEV_DOCUMENTATION_LINK')],
         ];
     }
 
