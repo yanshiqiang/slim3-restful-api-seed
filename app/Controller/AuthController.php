@@ -34,12 +34,12 @@ class AuthController extends Controller
         $payload['iat'] = time();
         $payload['jti'] = base64_encode(random_bytes(32));
         $payload['nbf'] = $payload['iat'] + 10;
-        $payload['exp'] = $payload['nbf'] + env('JWT_TOKEN_TTL');
+        $payload['exp'] = $payload['nbf'] + $this->config('jwt.ttl');
 //        $payload['iss'] = '';
 //        $payload['sub'] = '';
         $payload['data']['id'] = $user->id;
 
-        $token = JWT::encode($payload, env('JWT_SECRET'), 'HS256');
+        $token = JWT::encode($payload, $this->config('jwt.secret'), $this->config('jwt.algorithm'));
 
         return $this->respond(json_encode(['token' => $token, 'expires' => $payload['exp']], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     }
