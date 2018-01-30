@@ -9,17 +9,20 @@ use App\Presenter\PostsPresenter;
 use Respect\Validation\Validator as v;
 
 /**
- * Class PostsController
+ * Class PostController
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class PostsController extends Controller
+class PostController extends Controller
 {
 
     /**
      * Delete a post.
+     * 
+     * @param mixed $id
+     * @return Slim\Http\Response
      */
     public function delete($id)
     {
@@ -33,6 +36,9 @@ class PostsController extends Controller
 
     /**
      * Get a post.
+     * 
+     * @param mixed $id
+     * @return Slim\Http\Response
      */
     public function get($id)
     {
@@ -45,6 +51,8 @@ class PostsController extends Controller
 
     /**
      * Get all posts.
+     * 
+     * @return Slim\Http\Response
      */
     public function getAll()
     {
@@ -59,6 +67,8 @@ class PostsController extends Controller
 
     /**
      * Create a post.
+     * 
+     * @return Slim\Http\Response
      */
     public function post()
     {
@@ -80,6 +90,9 @@ class PostsController extends Controller
 
     /**
      * Update a post.
+     * 
+     * @param mixed $id
+     * @return Slim\Http\Response
      */
     public function put($id)
     {
@@ -93,7 +106,7 @@ class PostsController extends Controller
 
         $validation = $this->validate([
             'title' => v::notEmpty()->length(1, 160)
-        ], $inputs);
+                ], $inputs);
 
         if (!$validation->passed()) {
             return $this->respondWithValidation($validation->errors());

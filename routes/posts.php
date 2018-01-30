@@ -1,9 +1,9 @@
 <?php
 
-use App\Controller\PostsController;
+use App\Controller\PostController;
 
 $App->group('/posts', function() {
-    $this->route(['POST'], '', PostsController::class);
-    $this->route(['GET'], '', PostsController::class, 'all');
-    $this->route(['DELETE', 'GET', 'PUT'], '/{id}', PostsController::class);
+    $this->route(['POST'], '', PostController::class);
+    $this->route(['GET'], '', PostController::class, 'getAll');
+    $this->route(['DELETE', 'GET', 'PUT'], '/{id}', PostController::class);
 });
