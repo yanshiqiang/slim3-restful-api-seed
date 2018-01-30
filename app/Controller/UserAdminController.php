@@ -1,26 +1,28 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 use App\Base\Controller;
 use App\Model\UserModel;
 use App\Presenter\UserPresenter;
-use App\Presenter\UsersPresenter;
 use App\Utility\Hash;
 use Respect\Validation\Validator as v;
 
 /**
- * Class UsersController
+ * Class UserAdminController
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class UsersController extends Controller
+class UserAdminController extends Controller
 {
 
     /**
      * Delete a user.
+     * 
+     * @param mixed $id
+     * @return Slim\Http\Response
      */
     public function delete($id)
     {
@@ -33,35 +35,9 @@ class UsersController extends Controller
     }
 
     /**
-     * Get a user.
-     */
-    public function get($id)
-    {
-        if (!$user = UserModel::find($id)) {
-            return $this->respondWithError($this->text('user.not_found'));
-        }
-        
-        $user->giveAllPermissions();
-        
-        return $this->respond((new UserPresenter($user))->present());
-    }
-
-    /**
-     * Get all users.
-     */
-    public function getAll()
-    {
-        $users = UserModel::all();
-
-        if (!$users->count()) {
-            return $this->respondWithError($this->text('user.not_found'));
-        }
-
-        return $this->respond((new UsersPresenter($users))->present());
-    }
-
-    /**
      * Create a user.
+     * 
+     * @return Slim\Http\Response
      */
     public function post()
     {
@@ -75,7 +51,7 @@ class UsersController extends Controller
 
         if (!$validation->passed()) {
             return $this->respondWithValidation($validation->errors());
-}
+        }
 
         $user = new UserModel;
         $user->email = $this->param('email');
@@ -91,6 +67,9 @@ class UsersController extends Controller
 
     /**
      * Update a user.
+     * 
+     * @param mixed $id
+     * @return Slim\Http\Response
      */
     public function put($id)
     {
