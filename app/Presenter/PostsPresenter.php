@@ -14,14 +14,20 @@ use App\Base\Presenter;
 class PostsPresenter extends Presenter
 {
 
+    /**
+     * 
+     * @return array
+     */
     public function format(): array
     {
-        $posts = [];
-        foreach ($this->data() as $post) {
-            $users[] = (new PostPresenter($post))->format();
+        $data = [];
+
+        $posts = $this->data();
+        foreach ($posts as $post) {
+            $data[] = (new PostPresenter($post))->format();
         }
 
-        return $posts;
+        return $data;
     }
 
 }
