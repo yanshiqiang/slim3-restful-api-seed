@@ -16,6 +16,10 @@ use Symfony\Component\Console\Input\InputOption;
 class GenerateCommand extends Command
 {
 
+    /**
+     * 
+     * @return array
+     */
     public function arguments(): array
     {
         return [
@@ -24,11 +28,19 @@ class GenerateCommand extends Command
         ];
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function description(): string
     {
         return 'Geneate a blank resource to build upon.';
     }
 
+    /**
+     * 
+     * @return void
+     */
     public function handle()
     {
         $type = $this->argument('type');
@@ -71,16 +83,28 @@ class GenerateCommand extends Command
         return $this->writeInfo(sprintf('Successfully created "%s" in %s.', $className, $target));
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function help(): string
     {
         return '';
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function name(): string
     {
         return 'generate:resource';
     }
 
+    /**
+     * 
+     * @return array
+     */
     public function options(): array
     {
         return [
