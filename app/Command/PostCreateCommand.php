@@ -18,6 +18,10 @@ use Symfony\Component\Console\Input\InputOption;
 class PostCreateCommand extends Command
 {
 
+    /**
+     * 
+     * @return array
+     */
     public function arguments(): array
     {
         return [
@@ -26,11 +30,19 @@ class PostCreateCommand extends Command
         ];
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function description(): string
     {
         return '';
     }
 
+    /**
+     * 
+     * @return void
+     */
     public function handle()
     {
         $repeat = $this->option('repeat');
@@ -49,16 +61,28 @@ class PostCreateCommand extends Command
         $progress->finish();
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function help(): string
     {
         return '';
     }
 
+    /**
+     * 
+     * @return string
+     */
     public function name(): string
     {
         return 'post:create';
     }
 
+    /**
+     * 
+     * @return array
+     */
     public function options(): array
     {
         return [
