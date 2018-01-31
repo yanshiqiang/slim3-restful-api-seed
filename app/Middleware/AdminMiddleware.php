@@ -29,7 +29,7 @@ class AdminMiddleware extends Middleware
     public function handle(Request $request, Response $response, callable $next): Response
     {
         $userId = $this->user()->id;
-
+        
         if (!$user = UserModel::find($userId)) {
             throw new NotFoundException($request, $response);
         }
