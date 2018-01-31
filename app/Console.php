@@ -19,8 +19,13 @@ class Console extends Application implements ContainerAwareInterface
 
     use ContainerAwareTrait;
 
+    /** @var Interop\Container\ContainerInterface */
     private $_commands;
 
+    /**
+     * 
+     * @param Interop\Container\ContainerInterface $container
+     */
     public function __construct(ContainerInterface $container)
     {
         parent::__construct();
@@ -29,6 +34,10 @@ class Console extends Application implements ContainerAwareInterface
         $this->_commands = $this->config('commands');
     }
 
+    /**
+     * 
+     * @return App\Console
+     */
     public function boot()
     {
         if (is_array($this->_commands)) {
@@ -40,6 +49,7 @@ class Console extends Application implements ContainerAwareInterface
                 $this->add(new $command($this->_container));
             }
         }
+        
         return $this;
     }
 
