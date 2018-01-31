@@ -6,7 +6,7 @@ $database = $container->config->get('database');
 
 return [
     'paths' => [
-        'migrations' => 'resource/migrations'
+        'migrations' => 'app/Migrations'
     ],
     'environments' => [
         'default' => [
