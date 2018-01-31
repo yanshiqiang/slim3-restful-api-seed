@@ -21,6 +21,6 @@ return [
     ],
     'migration_base_class' => 'App\Base\Migration',
     'templates' => [
-        'file' => 'resource/templates/migration.txt'
+        'file' => 'templates/migration.txt'
     ]
 ];
