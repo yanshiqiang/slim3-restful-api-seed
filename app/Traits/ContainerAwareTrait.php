@@ -41,6 +41,11 @@ trait ContainerAwareTrait
         return $this->_container->logger;
     }
 
+    protected function user()
+    {
+        return $this->jwt()->data;
+    }
+
     protected function text(string $key, string $default = '')
     {
         if (!$text = $this->config('texts.' . $key)) {
@@ -48,11 +53,6 @@ trait ContainerAwareTrait
         }
 
         return $text;
-    }
-
-    protected function data()
-    {
-        return $this->jwt()->data;
     }
 
 }

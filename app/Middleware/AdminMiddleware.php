@@ -18,15 +18,23 @@ use Slim\Exception\NotFoundException;
 class AdminMiddleware extends Middleware
 {
 
+    /**
+     * 
+     * @param Psr\Http\Message\ServerRequestInterface $request
+     * @param Psr\Http\Message\ResponseInterface $response
+     * @param callable $next
+     * @return Psr\Http\Message\ResponseInterface
+     * @throws Slim\Exception\NotFoundException
+     */
     public function handle(Request $request, Response $response, callable $next): Response
     {
-        $userId = $this->jwt()->data->id;
-        
+        $userId = $this->user()->id;
+
         if (!$user = UserModel::find($userId)) {
             throw new NotFoundException($request, $response);
         }
 
-        if (!$user->isAdmin()) {
+        if (!($user->isAdmin() or $user->isSuperAdmin())) {
             throw new NotFoundException($request, $response);
         }
 
