@@ -6,27 +6,27 @@ use App\Base\Controller;
 use App\Model\UserModel;
 use App\Presenter\UserPresenter;
 use App\Utility\Hash;
+use Firebase\JWT\JWT;
 use Respect\Validation\Validator as v;
 
 /**
- * Class UserAdminController
+ * Class AuthController
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class UserAdminController extends Controller
+class AuthController extends Controller
 {
 
     /**
-     * Delete a user.
      * 
-     * @param mixed $id
      * @return Slim\Http\Response
      */
-    public function delete($id)
+    public function delete()
     {
-        if (!$user = UserModel::find($id)) {
+        $userId = $this->user()->id;
+        if (!$user = UserModel::find($userId)) {
             return $this->respondWithError($this->text('user.not_found'));
         }
         $user->delete();
@@ -35,56 +35,54 @@ class UserAdminController extends Controller
     }
 
     /**
-     * Create a user.
      * 
      * @return Slim\Http\Response
      */
     public function post()
     {
-        $validation = $this->validate([
-            'email' => v::notEmpty()->length(1, 254)->email()->emailUnique(),
-            'forename' => v::notEmpty()->length(1, 100)->noWhitespace()->alpha(),
-            'password' => v::notEmpty()->length(8, 100),
-            'surname' => v::notEmpty()->length(1, 100)->noWhitespace()->alpha(),
-            'username' => v::notEmpty()->length(1, 32)->noWhitespace()->alnum()->usernameUnique()
-        ]);
+        $username = $this->param('username');
+        $password = $this->param('password');
 
-        if (!$validation->passed()) {
-            return $this->respondWithValidation($validation->errors());
+        if (!$user = UserModel::where('username', $username)->first()) {
+            return $this->respondWithError('not found');
         }
 
-        $user = new UserModel;
-        $user->email = $this->param('email');
-        $user->forename = $this->param('forename');
-        $user->salt = Hash::salt();
-        $user->password = Hash::generate($this->param('password') . $user->salt);
-        $user->surname = $this->param('surname');
-        $user->username = $this->param('username');
-        $user->save();
+        if (!Hash::verify($user->password, $password . $user->salt)) {
+            return $this->respondWithError('wrong pass', 400);
+        }
 
-        return $this->respond((new UserPresenter($user))->present(), 201);
+        $payload = [];
+        $payload['iat'] = time();
+        $payload['jti'] = base64_encode(random_bytes(32));
+        $payload['nbf'] = $payload['iat'] + 10;
+        $payload['exp'] = $payload['nbf'] + $this->config('jwt.ttl');
+        //$payload['iss'] = '';
+        //s$payload['sub'] = '';
+        $payload['data']['id'] = $user->id;
+
+        $token = JWT::encode($payload, $this->config('jwt.secret'), $this->config('jwt.algorithm'));
+
+        return $this->respond(json_encode(['token' => $token, 'expires' => $payload['exp']], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     }
 
     /**
-     * Update a user.
      * 
-     * @param mixed $id
      * @return Slim\Http\Response
      */
-    public function put($id)
+    public function put()
     {
-        if (!$user = UserModel::find($id)) {
-            return $this->respondWithError($this->text('user.not_found'));
+        $userId = $this->user()->id;
+        if (!$user = UserModel::find($userId)) {
+            return $this->respondWithError($this->text(''));
         }
 
         if (!$inputs = $this->inputs()) {
-            return $this->respondWithError($this->text('user.nothing_to_update'), 400);
+            return $this->respondWithError($this->text(''), 400);
         }
 
         $rules = [
             'email' => v::notEmpty()->length(1, 254)->email()->emailUnique($user->email),
             'forename' => v::notEmpty()->length(1, 100)->noWhitespace()->alpha(),
-            'password' => v::notEmpty()->length(8, 100),
             'surname' => v::notEmpty()->length(1, 100)->noWhitespace()->alpha(),
             'username' => v::notEmpty()->length(1, 32)->noWhitespace()->alnum()->usernameUnique($user->username)
         ];

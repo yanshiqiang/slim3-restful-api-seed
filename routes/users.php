@@ -4,9 +4,11 @@
  * 
  */
 use App\Controller\UserController;
+use App\Controller\AuthController;
 
 $App->group('/users', function() {
     $this->route(['GET'], '/{id}', UserController::class);
+    $this->route(['DELETE', 'PUT'], '', AuthController::class);
     $this->route(['GET'], '', UserController::class, 'getAll');
 });
 
