@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Base\Model;
 use App\Traits\HasPermissionsTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class UserModel
@@ -15,9 +16,11 @@ use App\Traits\HasPermissionsTrait;
 class UserModel extends Model
 {
 
-    use HasPermissionsTrait;
+    use HasPermissionsTrait,
+        SoftDeletes;
 
     protected $table = 'users';
+    protected $dates = ['deleted_at'];
 
     public function can(string $action)
     {

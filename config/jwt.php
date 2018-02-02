@@ -6,7 +6,7 @@ return [
         'passthrough' => [
             '/auth'
         ],
-        'path' => '/',
+        'path' => ['/'],
         'relaxed' => [
             '127.0.0.1',
             'localhost'

@@ -19,12 +19,16 @@ class CreateUsersTable extends Migration
     {
         $this->schema()->create('users', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('biography', 254)->nullable();
             $table->string('email', 254);
             $table->string('forename', 100);
+            $table->string('location', 100)->nullable();
             $table->text('password');
             $table->text('salt');
             $table->string('surname', 100);
             $table->string('username', 32);
+            $table->string('website', 100)->nullable();
+            $table->softDeletes();	
             $table->timestamps();
         });
         UserModel::insert([

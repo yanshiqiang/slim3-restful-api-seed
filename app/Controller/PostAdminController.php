@@ -72,9 +72,11 @@ class PostAdminController extends Controller
             return $this->respondWithError($this->text('post.nothing_to_update'), 400);
         }
 
-        $validation = $this->validate([
+        $rules = [
             'title' => v::notEmpty()->length(1, 160)
-                ], $inputs);
+        ];
+
+        $validation = $this->validate($rules, $inputs);
 
         if (!$validation->passed()) {
             return $this->respondWithValidation($validation->errors());
