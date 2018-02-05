@@ -25,7 +25,7 @@ abstract class CreateCommand extends Command
 
     public function handle()
     {
-        $fileParts = explode('\\', $this->argument('name'));
+        $fileParts = array_map('ucfirst', explode('\\', $this->argument('name')));
         $className = array_pop($fileParts) . $this->classPrefix;
         $cleanPath = implode('/', $fileParts);
 
