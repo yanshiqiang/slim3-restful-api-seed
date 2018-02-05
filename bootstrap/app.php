@@ -9,6 +9,7 @@ use Respect\Validation\Validator;
 define('ROOT', realpath(dirname(__DIR__)) . '/');
 
 require_once ROOT . 'vendor/autoload.php';
+require_once ROOT . 'bootstrap/helpers.php';
 
 try {
     (new Dotenv(ROOT))->load();
