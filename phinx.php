@@ -19,7 +19,7 @@ return [
         ],
         'default_migration_table' => 'migrations'
     ],
-    'migration_base_class' => 'App\Base\Migration',
+    'migration_base_class' => 'App\Migration\Migration',
     'templates' => [
         'file' => 'templates/migration.txt'
     ]
