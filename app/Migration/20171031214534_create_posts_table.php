@@ -1,6 +1,6 @@
 <?php
 
-use App\Base\Migration;
+use App\Migration\Migration;
 use App\Model\PostModel;
 use Illuminate\Database\Schema\Blueprint;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Command;
+namespace App\Command\Post;
 
-use App\Base\Command;
+use App\Command\Command;
 use App\Model\PostModel;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;

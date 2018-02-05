@@ -2,7 +2,7 @@
 
 namespace NamespacePlaceholder;
 
-use App\Base\Model;
+use App\Model\Model;
 
 /**
  * Class ClassPlaceholder

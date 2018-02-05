@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace App\Middleware;
 
 use App\Interfaces\MiddlewareInterface;
 use App\Interfaces\ContainerAwareInterface;
@@ -13,7 +13,7 @@ use Psr\Http\Message\ResponseInterface as Response;
  * Class Middleware
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Base
+ * @category Middleware
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 abstract class Middleware implements ContainerAwareInterface, MiddlewareInterface

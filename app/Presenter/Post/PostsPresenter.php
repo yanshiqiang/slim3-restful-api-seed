@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Presenter;
+namespace App\Presenter\Post;
 
-use App\Base\Presenter;
+use App\Presenter\Presenter;
 
 /**
  * Class PostsPresenter

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace App\Command;
 
 use App\Interfaces\CommandInterface;
 use App\Interfaces\ContainerAwareInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class Command
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Base
+ * @category Command
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 abstract class Command extends BaseCommand implements CommandInterface, ContainerAwareInterface

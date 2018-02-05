@@ -1,6 +1,6 @@
 <?php
 
-use App\Base\Migration;
+use App\Migration\Migration;
 use App\Model\RoleModel;
 use App\Model\PermissionModel;
 use Illuminate\Database\Schema\Blueprint;

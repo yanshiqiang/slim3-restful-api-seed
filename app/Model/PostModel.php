@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Base\Model;
+use App\Model\Model;
 
 /**
  * Class PostModel

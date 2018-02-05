@@ -2,7 +2,7 @@
 
 namespace App\Middleware;
 
-use App\Base\Middleware;
+use App\Middleware\Middleware;
 use App\Model\UserModel;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;

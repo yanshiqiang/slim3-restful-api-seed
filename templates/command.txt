@@ -2,7 +2,7 @@
 
 namespace NamespacePlaceholder;
 
-use App\Base\Command;
+use App\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
