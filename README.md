@@ -46,7 +46,7 @@ Licensed under MIT. Totally free for private or commercial projects.
 
 ### Controllers
 
-Controllers are typically stored in the `app/Controller` directory, however they can technically live in any directory or any sub-directory. All controllers should extend the `App\Base\Controller` class, which is stored in the `app/Base` directory. The base controller may be used as a place to put shared controller logic.
+Controllers are typically stored in the `app/Controller` directory, however they can technically live in any directory or any sub-directory. All controllers should extend the `App\Controller\Controller` class, which is used as a place to put shared controller logic.
 
 #### Creating a new Controller
 
@@ -54,7 +54,7 @@ Controllers are typically stored in the `app/Controller` directory, however they
 
 ### Models
 
-This project makes use of Eloquent ORM, a simple ActiveRecord implementation for working with databases. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in tables, as well as insert new records into the table. Models are typically stored in the `app/Model` directory, but you are free to place them anywhere that can be auto-loaded. All models are required to extend the `App\Base\Model` class, which is stored in the `app/Base` directory.
+This project makes use of Eloquent ORM, a simple ActiveRecord implementation for working with databases. Each database table has a corresponding "Model" which is used to interact with that table. Models allow you to query for data in tables, as well as insert new records into the table. Models are typically stored in the `app/Model` directory, but you are free to place them anywhere that can be auto-loaded. All models are required to extend the `App\Model\Model` class.
 
 #### Creating a new Model
 
@@ -62,7 +62,7 @@ This project makes use of Eloquent ORM, a simple ActiveRecord implementation for
 
 ### Presenters
 
-Presenters are used to generate the view data. They are basically a class that accepts a [model](#models) and wraps it in some specific logic to alter the returned values without having to modify the original object. A presenter should not do any data manipulation, but can contain model calls and any other retrieval or preparation operations needed to generate the view data. Presenters are typically stored in the `app/Presenter` directory, although can be placed anywhere that can be auto-loaded, and are required to extend the `App\Base\Presenter` class - which is located in the `app/Base` directory.
+Presenters are used to generate the view data. They are basically a class that accepts a [model](#models) and wraps it in some specific logic to alter the returned values without having to modify the original object. A presenter should not do any data manipulation, but can contain model calls and any other retrieval or preparation operations needed to generate the view data. Presenters are typically stored in the `app/Presenter` directory, although can be placed anywhere that can be auto-loaded, and are required to extend the `App\Presenter\Presenter` class.
 
 #### Creating a new Presenter
 
@@ -70,7 +70,7 @@ Presenters are used to generate the view data. They are basically a class that a
 
 ### Middleware
 
-Middleware is code that is run before and after your application to manipulate the Request and Response objects as you see fit. Although Middleware can be placed anywhere that can be auto-loaded, it is typically stored in the `app/Middleware` and should extend the `App\Base\Middleware` class - which is located in the `app/Base` directory.
+Middleware is code that is run before and after your application to manipulate the Request and Response objects as you see fit. Although Middleware can be placed anywhere that can be auto-loaded, it is typically stored in the `app/Middleware` and should extend the `App\Middleware\Middleware` class.
 
 #### Creating new Middleware
 
