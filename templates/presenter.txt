@@ -2,7 +2,7 @@
 
 namespace NamespacePlaceholder;
 
-use App\Base\Presenter;
+use App\Presenter\Presenter;
 
 /**
  * Class ClassPlaceholder

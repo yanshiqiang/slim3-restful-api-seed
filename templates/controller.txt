@@ -2,7 +2,7 @@
 
 namespace NamespacePlaceholder;
 
-use App\Base\Controller;
+use App\Controller\Controller;
 
 /**
  * Class ClassPlaceholder

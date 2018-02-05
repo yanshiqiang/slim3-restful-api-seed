@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace App\Migration;
 
 use Phinx\Migration\AbstractMigration;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -9,7 +9,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
  * Class Migration
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Base
+ * @category Migration
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 class Migration extends AbstractMigration

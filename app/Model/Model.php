@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
  * Class Model
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Base
+ * @category Model
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 abstract class Model extends BaseModel

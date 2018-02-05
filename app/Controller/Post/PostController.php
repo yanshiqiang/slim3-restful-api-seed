@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Post;
 
-use App\Base\Controller;
+use App\Controller\Controller;
 use App\Model\PostModel;
-use App\Presenter\PostPresenter;
-use App\Presenter\PostsPresenter;
+use App\Presenter\Post\PostPresenter;
+use App\Presenter\Post\PostsPresenter;
 
 /**
  * Class PostController

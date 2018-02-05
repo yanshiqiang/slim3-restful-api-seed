@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Command;
+namespace App\Command\Create;
 
-use App\Base\Command;
+use App\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
- * Class GenerateCommand
+ * Class CreateCommand
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Command
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class GenerateCommand extends Command
+class CreateCommand extends Command
 {
 
     /**

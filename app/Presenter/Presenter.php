@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace App\Presenter;
 
 use App\Interfaces\PresenterInterface;
 
@@ -8,7 +8,7 @@ use App\Interfaces\PresenterInterface;
  * Class Presenter
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Base
+ * @category Presenter
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 abstract class Presenter implements PresenterInterface

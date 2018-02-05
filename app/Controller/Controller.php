@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Base;
+namespace App\Controller;
 
 use App\Interfaces\ContainerAwareInterface;
 use App\Traits\ContainerAwareTrait;
@@ -12,7 +12,7 @@ use Slim\Http\Response;
  * Class Controller
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
- * @category Base
+ * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
 abstract class Controller implements ContainerAwareInterface

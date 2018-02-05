@@ -3,7 +3,7 @@
 /**
  * 
  */
-use App\Controller\UserController;
+use App\Controller\User\UserController;
 use App\Controller\AuthController;
 
 $App->group('/users', function() {
@@ -15,10 +15,10 @@ $App->group('/users', function() {
 /**
  * 
  */
-use App\Controller\UserAdminController;
+use App\Controller\Post\AdminUserController;
 use App\Middleware\AdminMiddleware;
 
 $App->group('/admin/users', function() {
-    $this->route(['POST'], '', UserAdminController::class);
-    $this->route(['DELETE', 'PUT'], '/{id}', UserAdminController::class);
+    $this->route(['POST'], '', AdminUserController::class);
+    $this->route(['DELETE', 'PUT'], '/{id}', AdminUserController::class);
 })->add(new AdminMiddleware($container));

@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Post;
 
-use App\Base\Controller;
+use App\Controller\Controller;
 use App\Model\UserModel;
-use App\Presenter\UserPresenter;
+use App\Presenter\User\UserPresenter;
 use App\Utility\Hash;
 use Respect\Validation\Validator as v;
 
 /**
- * Class UserAdminController
+ * Class AdminUserController
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class UserAdminController extends Controller
+class AdminUserController extends Controller
 {
 
     /**

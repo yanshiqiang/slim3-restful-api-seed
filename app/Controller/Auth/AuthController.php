@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Auth;
 
-use App\Base\Controller;
+use App\Controller\Controller;
 use App\Model\UserModel;
-use App\Presenter\UserPresenter;
+use App\Presenter\User\UserPresenter;
 use App\Utility\Hash;
 use Firebase\JWT\JWT;
 use Respect\Validation\Validator as v;

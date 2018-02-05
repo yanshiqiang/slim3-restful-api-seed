@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Base\Model;
+use App\Model\Model;
 use App\Traits\HasPermissionsTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

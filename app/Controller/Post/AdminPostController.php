@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Post;
 
-use App\Base\Controller;
+use App\Controller\Controller;
 use App\Model\PostModel;
-use App\Presenter\PostPresenter;
+use App\Presenter\Post\PostPresenter;
 use Respect\Validation\Validator as v;
 
 /**
- * Class PostAdminController
+ * Class AdminPostController
  * 
  * @author Andrew Dyer <andrewdyer@outlook.com>
  * @category Controller
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class PostAdminController extends Controller
+class AdminPostController extends Controller
 {
 
     /**

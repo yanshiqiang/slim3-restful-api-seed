@@ -2,9 +2,11 @@
 
 return [
     'commands' => [
-        'App\Command\PostCreateCommand',
-        'App\Command\GenerateCommand',
-        'App\Command\UserGivePermissionCommand',
-        'App\Command\UserRemovePermissionCommand'
+        \App\Command\Create\CreateCommand::class,
+        \App\Command\Post\PostCreateCommand::class
     ]
 ];
+
+
+
+
