@@ -13,48 +13,24 @@ use Symfony\Component\Console\Input\InputOption;
  * @category Command
  * @see https://github.com/andrewdyer/slim3-restful-api-seed
  */
-class CreateCommand extends Command
+abstract class CreateCommand extends Command
 {
 
-    /**
-     * 
-     * @return array
-     */
     public function arguments(): array
     {
         return [
-            ['type', InputArgument::REQUIRED, 'The type of resource; command, controller, middleware, model or presenter'],
-            ['name', InputArgument::REQUIRED, 'The name of the resource.']
+            ['name', InputArgument::REQUIRED, 'The name of the file']
         ];
     }
 
-    /**
-     * 
-     * @return string
-     */
-    public function description(): string
-    {
-        return 'Geneate a blank resource to build upon.';
-    }
-
-    /**
-     * 
-     * @return void
-     */
     public function handle()
     {
-        $type = $this->argument('type');
-        $types = $this->config('app.directories');
-        if (!array_key_exists($type, $types) or ! $type = $types[$type]) {
-            return $this->writeError(sprintf('The resource type "%s" is invalid!', $type));
-        }
-
         $fileParts = explode('\\', $this->argument('name'));
-        $className = array_pop($fileParts) . $type['classPrefix'];
+        $className = array_pop($fileParts) . $this->classPrefix;
         $cleanPath = implode('/', $fileParts);
 
-        $path = $type['classDir'];
-        $namespace = $type['classNamespace'];
+        $path = $this->classDir;
+        $namespace = $this->classNamespace;
         if (count($fileParts) >= 1) {
             $path = $path . $cleanPath;
             $namespace = $namespace . '\\' . str_replace('/', '\\', $cleanPath);
@@ -75,7 +51,7 @@ class CreateCommand extends Command
             'EmailPlaceholder' => $this->option('email'),
             'SeePlaceholder' => $this->option('see')
         ];
-        $template = str_replace(array_keys($replacements), $replacements, file_get_contents($type['classTemplate']));
+        $template = str_replace(array_keys($replacements), $replacements, file_get_contents($this->classTemplate));
         if (!file_put_contents($target, $template)) {
             return $this->writeError(sprintf('Unable to create file "%s".', $target));
         }
@@ -83,28 +59,6 @@ class CreateCommand extends Command
         return $this->writeInfo(sprintf('Successfully created "%s" in %s.', $className, $target));
     }
 
-    /**
-     * 
-     * @return string
-     */
-    public function help(): string
-    {
-        return '';
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function name(): string
-    {
-        return 'generate:resource';
-    }
-
-    /**
-     * 
-     * @return array
-     */
     public function options(): array
     {
         return [

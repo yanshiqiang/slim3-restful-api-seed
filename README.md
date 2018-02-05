@@ -50,7 +50,7 @@ Controllers are typically stored in the `app/Controller` directory, however they
 
 #### Creating a new Controller
 
-`php bin/console generate:resource controller ControllerName`
+`php bin/console create:controller <controller_name>`
 
 ### Models
 
@@ -58,7 +58,7 @@ This project makes use of Eloquent ORM, a simple ActiveRecord implementation for
 
 #### Creating a new Model
 
-`php bin/console generate:resource model ModelName`
+`php bin/console create:model <model_name>`
 
 ### Presenters
 
@@ -66,7 +66,7 @@ Presenters are used to generate the view data. They are basically a class that a
 
 #### Creating a new Presenter
 
-`php bin/console generate:resource presenter PresenterName`
+`php bin/console create:presenter <presenter_name>`
 
 ### Middleware
 
@@ -74,13 +74,13 @@ Middleware is code that is run before and after your application to manipula
 
 #### Creating new Middleware
 
-`php bin/console generate:resource middleware MiddlewareName`
+`php bin/console create:middleware <middleware_name>`
 
 ### Commands
 
 Commands are typically stored in the `app/Command` directory. 
 
-`php bin/console generate:resource command CommandName`
+`php bin/console create:command <command_name>`
 
 ## Useful Links
 
