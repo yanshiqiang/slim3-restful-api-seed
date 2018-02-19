@@ -28,7 +28,7 @@ Licensed under MIT. Totally free for private or commercial projects.
 
 ## Requirements
 
-* PHP 7.0.24+
+* PHP 7.1.14+
 * MySQL 5.7.20+
 * Composer
 
