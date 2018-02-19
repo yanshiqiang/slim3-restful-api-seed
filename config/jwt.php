@@ -8,6 +8,7 @@ return [
         'relaxed' => envStringToArray(env('JWT_RELAXED', 'localhost')),
         'secret' => env('JWT_SECRET', ''),
         'secure' => env('JWT_SECURE', true),
-        'ttl' => env('JWT_TOKEN_TTL')
+        'ttl' => env('JWT_TOKEN_TTL'),
+        'nbf' => env('JWT_NBF', 0)
     ]
 ];
