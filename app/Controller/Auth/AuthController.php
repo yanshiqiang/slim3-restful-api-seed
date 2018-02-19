@@ -40,10 +40,10 @@ class AuthController extends Controller
      */
     public function post()
     {
-        $username = $this->param('username');
+        $emailOrUsername = $this->param('emailOrUsername');
         $password = $this->param('password');
 
-        if (!$user = UserModel::where('username', $username)->first()) {
+        if (!$user = UserModel::where('email', $emailOrUsername)->orWhere('username', $emailOrUsername)->first()) {
             return $this->respondWithError('not found');
         }
 
